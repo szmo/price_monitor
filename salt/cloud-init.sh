@@ -5,3 +5,4 @@ apt-get update
 apt-get install -y salt-minion
 echo "34.253.237.39 salt" >> /etc/hosts
 salt-minion -d
+salt-call state.highstate
