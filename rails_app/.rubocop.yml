@@ -1,0 +1,63 @@
+# The guiding principle of classes is SRP, SRP can't be accurately measured by LoC
+Metrics/ClassLength:
+  Max: 1500
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/LineLength:
+  Max: 120
+
+Metrics/AbcSize:
+  Max: 17
+
+Rails:
+  Enabled: true
+Rails/Delegate:
+  Enabled: false
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+# Most readable form.
+Style/AlignHash:
+  EnforcedHashRocketStyle: table
+  EnforcedColonStyle: table
+
+Style/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Style/BlockDelimiters:
+  EnforcedStyle: braces_for_chaining
+
+Style/BracesAroundHashParameters:
+  EnforcedStyle: context_dependent
+
+# Check with yard instead.
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Style/IndentArray:
+  EnforcedStyle: consistent
+
+Style/IndentHash:
+  EnforcedStyle: consistent
+
+# https://github.com/bbatsov/ruby-style-guide/issues/556
+Style/ModuleFunction:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+# We do not need to support Ruby 1.9, so this is good to use.
+Style/SymbolArray:
+  Enabled: true
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
