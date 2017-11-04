@@ -52,3 +52,8 @@ create-symlink-to-repo:
     - name: ln -s /root/price_monitor/salt /srv/
     - require:
       - clone-repo
+
+su -s /bin/sh root -c 'cd /root/price_monitor/ && /usr/bin/git pull:
+  cron.present:
+    - user: root
+    - minute: "*/1"
