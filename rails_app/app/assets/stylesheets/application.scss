@@ -1,0 +1,19 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+@import "rails_flashes";
+@import "homepage";
+
+
+body {
+  padding-top: 50px;
+}
+
+.nav-container {
+  padding-right: 15px;
+}
+
+.container {
+  padding: 0px 20px 0px;
+}
