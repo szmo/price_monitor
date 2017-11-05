@@ -16,7 +16,7 @@ ollert-image:
     - makedirs: true
 
 run-ollert:
-  docker_container.running:
+  docker_container.stopped:
     - detach: true
     - image: rzarouali/docker-ollert
     - binds:
