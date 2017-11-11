@@ -5,21 +5,23 @@
 #   git config --global core.excludesfile '~/.gitignore_global'
 
 # Ignore bundler config.
-/.bundle
+rails_app/.bundle
 
 # Ignore the default SQLite database.
-/db/*.sqlite3
-/db/*.sqlite3-journal
+rails_app/db/*.sqlite3
+rails_app/db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
+rails_app/log/*
+rails_app/tmp/*
 !/log/.keep
 !/tmp/.keep
 
-/node_modules
-/yarn-error.log
+rails_app/node_modules
+rails_app/yarn-error.log
 
-.byebug_history
-.idea/
+rails_app/.byebug_history
+rails_app/.idea/
 .DS_Store
+*/.DS_Store
+**/*.log
