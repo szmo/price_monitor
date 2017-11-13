@@ -1,0 +1,18 @@
+%header.navbar.navbar-fixed-top.navbar-inverse
+  %nav.navbar.navbar-inverse.navbar-fixed-top{role: 'navigation'}
+    %div.nav-container
+      %div.navbar-header
+        %button.navbar-toggle{'data-target' => '#bs-example-navbar-collapse-1', 'data-toggle'=> 'collapse', type: 'button'}
+          %span.sr-only Toggle navigation
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to 'Price monitor', root_url, class: 'navbar-brand'
+      %div.collapse.navbar-collapse.navbar-right#bs-example-navbar-collapse-1
+        %ul.nav.navbar-nav
+          %li
+            = link_to 'test', root_url
+          %li
+            = link_to 'testsw', root_url
+          %li
+            = link_to 'testdewwefwe', root_url
