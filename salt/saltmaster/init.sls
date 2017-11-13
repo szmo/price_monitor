@@ -53,7 +53,7 @@ create-symlink-to-repo:
     - require:
       - clone-repo
 
-su -s /bin/sh root -c 'cd /root/price_monitor/ && /usr/bin/git pull:
+su -s /bin/sh root -c 'cd /root/price_monitor/ && /usr/bin/git pull' > /root/crontab.log 2>&1:
   cron.present:
     - user: root
     - minute: "*/1"
