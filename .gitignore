@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 rails_app/.bundle
+rails_app/.ruby-version
 
 # Ignore the default SQLite database.
 rails_app/db/*.sqlite3
