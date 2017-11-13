@@ -22,6 +22,8 @@ rails_app/yarn-error.log
 
 rails_app/.byebug_history
 rails_app/.idea/
-.DS_Store
-*/.DS_Store
+**/*.swp
+**/*.swo
+
+**/.DS_Store
 **/*.log

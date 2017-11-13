@@ -5,3 +5,4 @@ base:
     - docker
     - docker.ollert
     - saltmaster
+    - graphite
