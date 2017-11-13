@@ -4,4 +4,5 @@ base:
   'G@role:iss':
     - docker
     - docker.ollert
+    - docker.pm_container
     - saltmaster
