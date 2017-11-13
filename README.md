@@ -1,7 +1,5 @@
-# README
-
 ![](docs/promos/logo-wide.png)
-==== Welcome to Price Monitor ====
+## Welcome to Price Monitor
 
 
 This README would normally document whatever steps are necessary to get the
