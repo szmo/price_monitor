@@ -1,0 +1,60 @@
+require 'net/http'
+require 'json'
+require 'graphite-api'
+
+class GraphiteAdapter
+    def initialize
+        @graphite_host = Settings.graphite.host
+        @default_period = Settings.graphite.default_get_metric_time
+        @api = GraphiteAPI.new(
+            graphite: "#{@graphite_host}:#{Settings.graphite.port}",
+            prefix: Settings.graphite.metric_prefix
+        )
+    end
+
+    def send_raw(metric, value = nil, time = nil)
+        if !metric.is_a?(Hash)
+            metric = { metric => value }
+        end
+
+        if time
+            @api.metrics(metric, Time.at(time))
+        else
+            @api.metrics(metric)
+        end
+    end
+
+    def send_deal_price(deal_name, price, time = nil, user = 'internal')
+        metrics_hash = {
+            "#{user}.#{deal_name}.price" => price,
+            "#{user}.#{deal_name}.check_time" => Time.now
+        }
+        send_raw(metrics_hash)
+    end
+    
+    def get_metric(metric, type, time_from: nil, time_to: nil)
+        url = URI::HTTP.build({
+            host: @graphite_host,
+            path: "/render",
+            query: {
+                target: metric,
+                format: type,
+                from: time_from ? time_from : @default_period,
+                to: time_to ? time_to : "now"
+            }.to_query
+        })
+        req = Net::HTTP::Get.new(url.to_s)
+        res = Net::HTTP.start(url.host, url.port) {|http|
+            http.request(req)
+        }
+        return JSON.parse(res.body)[0]["datapoints"]
+    end
+
+    def get_metric_json(metric, time_from: nil, time_to: nil)
+        return get_metric(metric, "json", time_from: time_from, time_to: time_to)
+    end
+
+    def get_metric_png(metric, time_from: nil, time_to: nil)
+        return get_metric(metric, "png", time_from: time_from, time_to: time_to)
+    end
+end

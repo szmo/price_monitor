@@ -1,0 +1,5 @@
+graphite:
+    host: localhost
+    port: 2003
+    metric_prefix: price_monitor_internal
+    default_get_metric_time: "-14d"

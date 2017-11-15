@@ -43,6 +43,8 @@ gem 'jbuilder', '~> 2.5'
 # What more changes default rails console from irb to pry
 gem 'pry'
 gem 'pry-rails'
+gem 'graphite-api'
+gem 'config'
 
 group :development, :test do
   # Call binding.pry anywhere in the code to stop execution and get a debugger console
