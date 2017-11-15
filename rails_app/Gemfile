@@ -45,6 +45,8 @@ gem 'pry'
 gem 'pry-rails'
 gem 'graphite-api'
 gem 'config'
+# gem for managing users
+gem 'devise'
 
 group :development, :test do
   # Call binding.pry anywhere in the code to stop execution and get a debugger console

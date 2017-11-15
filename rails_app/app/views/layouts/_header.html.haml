@@ -7,12 +7,28 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
+        = image_tag 'small_logo.png'
         = link_to 'Price monitor', root_url, class: 'navbar-brand'
       %div.collapse.navbar-collapse.navbar-right#bs-example-navbar-collapse-1
         %ul.nav.navbar-nav
-          %li
-            = link_to 'test', root_url
-          %li
-            = link_to 'testsw', root_url
-          %li
-            = link_to 'testdewwefwe', root_url
+          - if current_user
+            %li
+              = link_to 'My trackings', '#'
+            %li.dropdown
+              %a.dropdown-toggle{'href' => '#', 'data-toggle' => 'dropdown'}
+                Account
+                %b.caret
+              %ul.dropdown-menu
+                %li
+                  = link_to 'Profile', '#'
+                %li
+                  = link_to 'Settings', '#'
+                %li.divider
+                %li
+                  = link_to 'Log out', destroy_user_session_path, method: :delete
+          - else
+            %li
+              = link_to 'Log in', new_user_session_path
+            %li
+              = link_to 'Sign up', new_user_registration_path
+
