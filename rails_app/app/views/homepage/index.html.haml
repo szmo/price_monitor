@@ -1,6 +1,32 @@
 .well
-  .input-group
-    %input.form-control{type: 'text', placeholder: 'www.example.com'}
-    %span.input-group-btn
-      %button.btn.btn-default{type: 'button', type: 'button'}
-        Search!
+  - if current_user
+    = image_tag 'phone1.gif'
+    .header
+      %h1 Paster url to track!
+    .input-group.search
+      %input.form-control{type: 'text', placeholder: 'www.example.com'}
+      %span.input-group-btn
+        %button.btn.btn-default{type: 'button', type: 'button'}
+          Search!
+  - else
+    .header
+      %h1 Welcome to PRICE MONITOR as a service
+    .banner
+      = image_tag 'logos1.gif'
+    .section
+      %h3 Please sign up and don't waste Your time for tracking price. Let us do it for You!
+      .privilege
+        %h2 When You are logged in You can:
+        %ul
+          .list-items
+            %li
+              %h4 add deals to track
+            %li
+              %h4 being notified anytime price changes
+            %li
+              %h4 watch price metrics for each of Your deal
+      %h2 For any further information feel free to contact us!
+    .banner
+      = image_tag 'cards.png'
+
+
