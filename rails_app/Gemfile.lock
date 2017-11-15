@@ -302,12 +302,13 @@ DEPENDENCIES
   capybara (~> 2.13)
   config
   database_cleaner
-  graphite-api
   devise
+  graphite-api
   haml (~> 5.0.4)
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  nokogiri
   pronto
   pronto-rubocop
   pry

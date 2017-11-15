@@ -45,6 +45,7 @@ gem 'pry'
 gem 'pry-rails'
 gem 'graphite-api'
 gem 'config'
+gem 'nokogiri'
 # gem for managing users
 gem 'devise'
 
