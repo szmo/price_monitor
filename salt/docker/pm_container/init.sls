@@ -30,7 +30,14 @@ run-price-monitor:
       - 9999:3000
     - require:
       - build_new_container
+      {% if running_versions %}
       - stop_old_instance
       - remove_old_instance
+      {% endif %}
 
 {% endif %}
+
+echo {{ running_versions }} > /root/running_versions:
+  cmd.run
+
+
