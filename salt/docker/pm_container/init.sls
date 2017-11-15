@@ -36,8 +36,3 @@ run-price-monitor:
       {% endif %}
 
 {% endif %}
-
-echo {{ running_versions }} > /root/running_versions:
-  cmd.run
-
-
