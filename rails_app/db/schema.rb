@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20171116170924) do
 
+
   create_table "deals", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
