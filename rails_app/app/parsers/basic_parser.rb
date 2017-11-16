@@ -31,7 +31,9 @@ class BasicParser
     Settings.parsers[@name].string.each do |property, xpath|
       result[property] = purify_text(find_in_html(xpath))
     end
+
     Rails.logger.debug result
+
     Deal.new(**result)
   end
 end
