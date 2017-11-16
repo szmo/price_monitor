@@ -7,3 +7,4 @@ base:
     - docker.pm_container
     - saltmaster
     - graphite
+    - grafana
