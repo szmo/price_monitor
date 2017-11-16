@@ -1,4 +1,4 @@
-{% set current_version = "0.0.6" %}
+{% set current_version = "0.1.0" %}
 {% set running_versions = salt.cmd.shell("docker ps | grep price_monitor | awk '{print $2}' | cut -d':' -f2") %}
 
 {% if current_version not in running_versions %}

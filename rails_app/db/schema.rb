@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20171116215911) do
 
   create_table "deals", force: :cascade do |t|
@@ -21,8 +20,12 @@ ActiveRecord::Schema.define(version: 20171116215911) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "url"
-    t.datetime "scraped_at"
     t.integer "scrape_interval"
+    t.datetime "disabled_at"
+    t.string "provider"
+    t.index ["disabled_at"], name: "index_deals_on_disabled_at"
+    t.index ["provider"], name: "index_deals_on_provider"
+    t.index ["url"], name: "index_deals_on_url"
   end
 
   create_table "users", force: :cascade do |t|
