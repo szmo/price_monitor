@@ -23,6 +23,11 @@ ActiveRecord::Schema.define(version: 20171116215911) do
     t.string "url"
     t.datetime "scraped_at"
     t.integer "scrape_interval"
+    t.datetime "disabled_at"
+    t.string "provider"
+    t.index ["disabled_at"], name: "index_deals_on_disabled_at"
+    t.index ["provider"], name: "index_deals_on_provider"
+    t.index ["url"], name: "index_deals_on_url"
   end
 
   create_table "users", force: :cascade do |t|
