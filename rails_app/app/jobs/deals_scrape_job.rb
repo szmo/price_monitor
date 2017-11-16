@@ -8,7 +8,7 @@ class DealsScrapeJob < ApplicationJob
     start_time = Time.now
     deals_to_parse.each do |deal|
       # new_deal_status = Settings.parser_helpers.join_parsers[deal.provider].constantize.new(deal.url)
-        if deal.updated_at.nil? or deal.updated_at + deal.scrape_interval < Time.now
+      if deal.updated_at.nil? or deal.updated_at + deal.scrape_interval < Time.now
         new_deal = BasicParser.new(deal.url).parse
         deal_identifier = Digest::MD5.hexdigest(deal.url)
         @@graphite.send_raw({
