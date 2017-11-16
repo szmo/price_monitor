@@ -53,7 +53,12 @@ create-symlink-to-repo:
     - require:
       - clone-repo
 
-su -s /bin/sh root -c 'cd /root/price_monitor/ && /usr/bin/git pull' > /root/crontab.log 2>&1:
+su -s /bin/sh root -c 'cd /root/price_monitor/ && /usr/bin/git pull' > /var/log/crontab.log 2>&1:
   cron.present:
     - user: root
     - minute: "*/1"
+
+salt-call state.highstate:
+  cron.present:
+    - user: root
+    - special: "@reboot"
