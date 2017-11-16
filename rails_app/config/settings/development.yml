@@ -1,0 +1,28 @@
+graphite:
+    host: localhost
+    port: 2003
+    metric_prefix: price_monitor_internal
+    default_get_metric_time: "-14d"
+
+parsers:
+    itaka:
+        number:
+            price: "strong[data-js-value='offerPrice']"
+        string:
+            name: "span[class='productName-holder']"
+            country: "span[class='destination-title destination-country-region'] @data-product-country"
+            city: "span[class='destination-title destination-country-region'] @data-product-region"
+    x-kom:
+        number:
+            price: "span[class='pull-right price']"
+        string:
+            name: "div[class='product-info'] h1[itemprop='name']"
+
+parser_helpers:
+    things_to_delete:
+        - " "
+        - "\u00A0"
+        - "zl"
+        - "zł"
+        - "pln"
+
