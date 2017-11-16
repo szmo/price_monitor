@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .well {
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .input-group {
@@ -28,7 +28,7 @@
 }
 
 .privilege {
-  width: 60%;
+  width: 40%;
   margin: 0 auto;
   padding: 30px 0;
 }

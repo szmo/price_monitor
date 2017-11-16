@@ -2,30 +2,32 @@
   - if current_user
     = image_tag 'phone1.gif'
     .header
-      %h1 Paster url to track!
+      %h1 Paste url to track!
     .input-group.search
-      %input.form-control{type: 'text', placeholder: 'www.example.com'}
+      %input.form-control{type: 'text', placeholder: 'https://www.itaka.pl'}
       %span.input-group-btn
         %button.btn.btn-default{type: 'button', type: 'button'}
           Search!
   - else
     .header
-      %h1 Welcome to PRICE MONITOR as a service
+      %h1 Welcome to
+      %h1 PRICE MONITOR
+      %h1 as a service
     .banner
       = image_tag 'logos1.gif'
     .section
-      %h3 Please sign up and don't waste Your time for tracking price. Let us do it for You!
+      %h3 Don't waste any of Your precious time for checking price again, let us do it for You!
       .privilege
-        %h2 When You are logged in You can:
+        %h2 Joining price monitor lets you:
         %ul
           .list-items
             %li
-              %h4 add deals to track
+              %h4 track your desired DEAL
             %li
-              %h4 being notified anytime price changes
+              %h4 receive ALERTS about price change
             %li
-              %h4 watch price metrics for each of Your deal
-      %h2 For any further information feel free to contact us!
+              %h4 VISUALIZE price change. Easily and Beautifully.
+      %h2 Feel like talking? Contact us!
     .banner
       = image_tag 'cards.png'
 
