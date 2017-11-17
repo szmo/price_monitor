@@ -13,6 +13,7 @@ module HolidayAllYear
 
     config.after_initialize do
       DealsScrapeJob.perform_later
+      StatsJobJob.perform_later
     end
 
     # Settings in config/environments/* take precedence over those specified here.
