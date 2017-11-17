@@ -1,0 +1,5 @@
+= form_for Deal.new, url: search_path, method: :post do |f|
+  .input-group.search
+    = f.text_field :url, class: 'form-control', placeholder: 'https://www.itaka.pl'
+    %span.input-group-btn
+      = f.button('Search', class: 'btn btn-default')

@@ -1,0 +1,7 @@
+- @deals.each do |deal|
+  .deal
+    %h4= deal.provider
+    %h4= deal.price
+    %h4= deal.name
+    %h4= Digest::MD5.hexdigest(deal.url)
+    %br

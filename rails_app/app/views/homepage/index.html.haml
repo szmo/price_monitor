@@ -3,11 +3,7 @@
     = image_tag 'phone1.gif'
     .header
       %h1 Paste url to track!
-    .input-group.search
-      %input.form-control{type: 'text', placeholder: 'https://www.itaka.pl'}
-      %span.input-group-btn
-        %button.btn.btn-default{type: 'button', type: 'button'}
-          Search!
+      = render 'deals/search'
   - else
     .header
       %h1 Welcome to
