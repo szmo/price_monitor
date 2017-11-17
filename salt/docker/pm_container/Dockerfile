@@ -7,5 +7,6 @@ WORKDIR /price_monitor/rails_app
 RUN gem install rugged -v '0.26.0'
 RUN bundle install
 RUN rails db:migrate
+RUN rake db:seed
 
 CMD rails server
