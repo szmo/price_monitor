@@ -38,6 +38,6 @@ class DealsScrapeJob < ApplicationJob
   private
 
   def deals_to_parse
-    Deal.where(disabled_at: nil)
+    Deal.where(disabled_at: nil).find_in_batches(batch_size: 1000)
   end
 end
