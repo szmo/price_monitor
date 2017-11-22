@@ -1,1 +1,3 @@
 --require spec_helper
+spec.authors = ['Patryk Gałczyński', 'Szymon Duda']
+spec.license = 'MIT'
