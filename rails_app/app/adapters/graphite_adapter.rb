@@ -39,7 +39,7 @@ class GraphiteAdapter
   end
   
   def get_metric(metric, type, time_from: nil, time_to: nil)
-    url = get_metric_url(metric, type, time_from, time_to)
+    url = get_metric_url(metric, type, time_from: time_from, time_to: time_to)
     req = Net::HTTP::Get.new(url.to_s)
     res = Net::HTTP.start(url.host, url.port) {|http|
       http.request(req)
