@@ -104,7 +104,7 @@ RSpec.describe GraphiteAdapter do
   end
 
   describe '.get_metric_json' do
-    it 'checks if getting json metric' do
+    it 'returns metrics in json' do
       mock_values = double('some-mock-values')
       expect(@graphite).to receive(:get_metric)
         .with('mock.metric', 'json', time_from: nil, time_to: nil)
@@ -115,7 +115,7 @@ RSpec.describe GraphiteAdapter do
   end
 
   describe '.get_metric_png' do
-    it 'checks if getting png image from graphite' do
+    it 'returns png image' do
       mock_values = double('some-mock-values')
       expect(@graphite).to receive(:get_metric)
         .with('mock.metric', 'png', time_from: nil, time_to: nil)
@@ -126,7 +126,7 @@ RSpec.describe GraphiteAdapter do
   end
 
   describe '.get_metric_png_url' do
-    it 'checks if it gets png image url' do
+    it 'returns url to png image' do
       mock_url = double('some-mock-url')
       expect(@graphite).to receive(:get_metric_url)
         .with('mock.metric', 'png', time_from: nil, time_to: nil)
