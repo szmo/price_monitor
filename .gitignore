@@ -26,6 +26,7 @@ rails_app/.byebug_history
 rails_app/.idea/
 **/*.swp
 **/*.swo
+**/*.orig
 
 **/.DS_Store
 **/*.log
