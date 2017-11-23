@@ -8,24 +8,24 @@ RSpec.describe BasicParser do
       .to_return(status: 200, body: File.new("#{Rails.root}/spec/parsers/example.html").read)
     @parser = BasicParser.new(@mock_url)
   end
-  
+
   describe '.initialize' do
     it 'calculates name from hostname, parses html' do
-        expect(@parser.instance_variable_get('@url')).to eql(@mock_url)
-        expect(@parser.instance_variable_get('@name')).to eql('mock-service-url.mock')
-        expect(@parser.instance_variable_get('@html')).not_to be_nil
+      expect(@parser.instance_variable_get('@url')).to eql(@mock_url)
+      expect(@parser.instance_variable_get('@name')).to eql('mock-service-url.mock')
+      expect(@parser.instance_variable_get('@html')).not_to be_nil
     end
 
     it 'passess name to instance variable' do
-        parser = BasicParser.new(@mock_url, name: 'mock-name')
-        expect(parser.instance_variable_get('@name')).to eql('mock-name')
+      parser = BasicParser.new(@mock_url, name: 'mock-name')
+      expect(parser.instance_variable_get('@name')).to eql('mock-name')
     end
   end
 
   describe '.find_in_html' do
     it 'finds title by passed xpath' do
-        mock_xpath_1 = 'p[@class="offer-name"]'
-        expect(@parser.find_in_html(mock_xpath_1)).to eql('   Awesome offer ')
+      mock_xpath_1 = 'p[@class="offer-name"]'
+      expect(@parser.find_in_html(mock_xpath_1)).to eql('   Awesome offer ')
     end
   end
 
