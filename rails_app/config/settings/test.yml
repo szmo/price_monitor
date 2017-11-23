@@ -5,18 +5,11 @@ graphite:
     default_get_metric_time: "-14d"
 
 parsers:
-    www.itaka.pl:
+    mock-service-url.mock:
         number:
-            price: "strong[data-js-value='offerPrice']"
+            price: "div[class='mock-div another-class'] span"
         string:
-            name: "span[class='productName-holder']"
-            country: "span[class='destination-title destination-country-region'] @data-product-country"
-            city: "span[class='destination-title destination-country-region'] @data-product-region"
-    www.x-kom.pl:
-        number:
-            price: "span[class='pull-right price']"
-        string:
-            name: "div[class='product-info'] h1[itemprop='name']"
+            name: "p[class='offer-name']"
 
 parser_helpers:
     things_to_delete:
