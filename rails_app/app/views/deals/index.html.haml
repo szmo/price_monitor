@@ -1,7 +1,11 @@
-- @deals.each do |deal|
-  .deal
-    %h4= deal.provider
-    %h4= deal.price
-    %h4= deal.name
-    %h4= Digest::MD5.hexdigest(deal.url)
-    %br
+.well
+  - @deals.each do |deal|
+    .deal
+      .names
+        %h5= deal.name
+        %h5= cut_provider_name(deal.provider)
+      .price
+        %h3= deal.price
+      .button
+        =link_to 'See more', deal_path(deal), class: 'btn btn-default'
+

@@ -21,4 +21,8 @@ class DealsController < ApplicationController
     end
     redirect_to deals_url
   end
+
+  def show
+    @deal = Deal.find(params[:id])
+  end
 end
