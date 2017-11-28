@@ -17,3 +17,9 @@ run-postgres:
       - POSTGRES_PASSWORD: {{ grains.get('rails_pg_password') }}
     - require:
       - postgres-image
+
+install-psql:
+  pkg.installed:
+    pkgs: 
+      - postgresql-client-common
+      - postgresql-client
