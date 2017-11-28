@@ -20,6 +20,6 @@ run-postgres:
 
 install-psql:
   pkg.installed:
-    pkgs: 
+    - pkgs: 
       - postgresql-client-common
       - postgresql-client
