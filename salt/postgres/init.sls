@@ -17,9 +17,6 @@ run-postgres:
       - POSTGRES_PASSWORD: {{ grains.get('rails_pg_password') }}
     - require:
       - postgres-image
-    - onchanges:
-      - postgres
-      - create-ext
 
 install-psql:
   pkg.installed:
@@ -27,9 +24,17 @@ install-psql:
       - postgresql-client-common
       - postgresql-client
 
-postgres:
-  user: {{ grains.get('rails_pg_user') }}
-  pass: {{ grains.get('rails_pg_password') }}
-  db: {{ grains.get('rails_pg_user') }}
-  fromdb:
-    query: 'create or replace function int2interval (x integer) returns interval as $$ select $1*'1 sec'::interval $$ language sql; create cast (integer as interval) with function int2interval (integer) as implicit;'
+{% if salt.cmd.retcode('test -f /tmp/create_cast') == 1 %}
+
+/tmp/create_cast:
+  file.managed:
+    - source: salt://postgres/create_cast
+
+create-ext:
+  cmd.run:
+    - name: cat /tmp/create_cast | PGPASSWORD={{ grains.get('rails_pg_password') }} psql -U {{ grains.get('rails_pg_user') }} -h localhost
+    - require:
+      - install-psql
+      - /tmp/create_cast
+
+{% endif %}
