@@ -7,6 +7,7 @@ build_new_container:
   docker_image.present:
     - name: price_monitor:{{ current_version }}
     - build: /root/price_monitor/salt/docker/pm_container
+    - force: true
 
 stop_old_instance:
   docker_container.stopped:
@@ -26,6 +27,13 @@ run-price-monitor:
   docker_container.running:
     - detach: true
     - image: price_monitor:{{ current_version }}
+    - extra_hosts:
+      - graphite.price:{{ grains['storage_host'] }}
+      - postgres.price:{{ grains['storage_host'] }}
+    - environment:
+      - rails_pg_password: {{ grains['rails_pg_password'] }}
+      - rails_pg_user: {{ grains['rails_pg_user'] }}
+      - SECRET_KEY_BASE: {{ grains['SECRET_KEY_BASE' }}
     - port_bindings:
       - 9999:3000
     - require:

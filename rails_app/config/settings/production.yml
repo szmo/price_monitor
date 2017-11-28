@@ -1,5 +1,4 @@
 graphite:
-    #host: graphite.price
     host: graphite.price
     port: 2003
     metric_prefix: price_monitor_internal

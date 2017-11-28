@@ -6,7 +6,6 @@ base:
     - saltmaster
   'G@role:iss':
     - docker.pm_container
-    - grafana
   'G@role:progress68':
     - graphite
     - grafana
