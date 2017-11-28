@@ -34,6 +34,7 @@ run-price-monitor:
       - rails_pg_password: {{ grains['rails_pg_password'] }}
       - rails_pg_user: {{ grains['rails_pg_user'] }}
       - SECRET_KEY_BASE: {{ grains['SECRET_KEY_BASE' }}
+      - RAILS_ENV: production
     - port_bindings:
       - 9999:3000
     - require:
