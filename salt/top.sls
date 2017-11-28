@@ -1,10 +1,13 @@
 base:
   '*':
     - users
-  'G@role:iss':
     - docker
-    - docker.ollert
-    - docker.pm_container
+  'G@role:houston':
     - saltmaster
+  'G@role:iss':
+    - docker.pm_container
+    - grafana
+  'G@role:progress68':
     - graphite
     - grafana
+    - postgres
