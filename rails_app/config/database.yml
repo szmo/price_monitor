@@ -21,5 +21,10 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: <%= ENV["rails_pg_user"] %>
+  pool: 5
+  host: postgres.price
+  username: <%= ENV["rails_pg_user"] %>
+  password:  <%= ENV["rails_pg_password"] %>

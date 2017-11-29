@@ -1,3 +1,10 @@
+pip-docker-py:
+  pip.installed:
+    - name: docker-py
+    - reload_modules: True
+    - require:
+      - docker-dependencies
+
 docker-dependencies:
   pkg.installed:
     - pkgs:

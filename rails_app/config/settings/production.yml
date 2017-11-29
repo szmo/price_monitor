@@ -5,14 +5,14 @@ graphite:
     default_get_metric_time: "-14d"
 
 parsers:
-    itaka:
+    www.itaka.pl:
         number:
             price: "strong[data-js-value='offerPrice']"
         string:
             name: "span[class='productName-holder']"
             country: "span[class='destination-title destination-country-region'] @data-product-country"
             city: "span[class='destination-title destination-country-region'] @data-product-region"
-    x-kom:
+    www.x-kom.pl:
         number:
             price: "span[class='pull-right price']"
         string:

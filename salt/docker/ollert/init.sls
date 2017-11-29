@@ -1,8 +1,3 @@
-pip-docker-py:
-  pip.installed:
-    - name: docker-py
-    - reload_modules: True
-
 ollert-image:
   docker_image.present:
     - tag: latest
