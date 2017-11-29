@@ -14,6 +14,7 @@ RUN  git clone -b feature/postgres_db_engine https://github.com/szmo/price_monit
 WORKDIR /price_monitor/rails_app
 RUN bundle install
 RUN rake assets:precompile
-RUN rails_pg_user=${rails_pg_user} rails_pg_password=${rails_pg_password} rails db:migrate
+# run db:migrate manualy if necessary
+#RUN rails_pg_user=${rails_pg_user} rails_pg_password=${rails_pg_password} rails db:migrate
 
 CMD rails server
