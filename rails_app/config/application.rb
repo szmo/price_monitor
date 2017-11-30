@@ -12,8 +12,8 @@ module HolidayAllYear
     config.load_defaults 5.1
 
     config.after_initialize do
-      # DealsScrapeJob.perform_later
-      # StatsJobJob.perform_later
+       DealsScrapeJob.perform_later
+       StatsJobJob.perform_later
     end
 
     # Settings in config/environments/* take precedence over those specified here.

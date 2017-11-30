@@ -29,6 +29,7 @@ class GraphiteAdapter
     URI::HTTP.build({
       host: @graphite_host,
       path: '/render',
+      port: 8080,
       query: {
         target: metric,
         format: type,
