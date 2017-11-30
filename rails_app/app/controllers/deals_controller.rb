@@ -26,8 +26,8 @@ class DealsController < ApplicationController
 
   def show
     @deal = Deal.find(params[:id])
-    @adapter |= GraphiteAdapter.new
-    deal_identifier = deal.name.parameterize
+    @adapter = GraphiteAdapter.new
+    deal_identifier = @deal.name.parameterize
     filtered_data = filter_data(@adapter.get_metric_json("price_monitor_internal.deals.#{deal_identifier}.price"))
     labels, data = prepare_data_for_chart(filtered_data)
 
