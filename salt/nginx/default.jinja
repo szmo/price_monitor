@@ -1,0 +1,36 @@
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /var/www/html;
+
+	# Add index.php to the list if you are using PHP
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name _;
+
+	location / {
+                proxy_set_header Host $host;
+                proxy_pass http://localhost:9999/;
+	}
+
+        location /grafana/ {
+                #proxy_set_header Authorization "";
+                #proxy_pass http://graphite.price:7777/;
+                #rewrite  ^/grafana/(.*)  /$1 break;
+                #proxy_set_header Host $host;
+                rewrite ^(.*)$ http://{{ public_storage_host }}:7777 redirect;
+        }
+
+	location /trello {
+                rewrite ^(.*)$ https://trello.com/b/TZanAiel/pricemonitoringasaservice redirect;
+        }
+
+	location /ollert {
+                rewrite ^(.*)$ https://ollertapp.com/boards/59e9f1dd63f08fa8644cdf8d redirect;
+        }
+
+        location /graphite {
+                rewrite ^(.*)$ http://{{ public_storage_host }}:8080 redirect;
+        }
+}
