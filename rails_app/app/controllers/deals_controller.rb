@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DealsController < ApplicationController
 
   before_action :authenticate_user!
@@ -24,5 +26,43 @@ class DealsController < ApplicationController
 
   def show
     @deal = Deal.find(params[:id])
+    @adapter |= GraphiteAdapter.new
+    deal_identifier = deal.name.parameterize
+    filtered_data = filter_data(@adapter.get_metric_json("price_monitor_internal.deals.#{deal_identifier}.price"))
+    labels, data = prepare_data_for_chart(filtered_data)
+
+    @data = {
+      labels:   labels,
+      datasets: [
+        {
+          label:           @deal.name,
+          backgroundColor: 'rgba(151,187,205,0.2)',
+          borderColor:     'rgba(151,187,205,1)',
+          data:            data,
+        },
+      ],
+    }
+    @options = { height: 200 }
   end
+
+  private
+
+  def filter_data(data)
+    filtered = []
+    data.each do |data|
+      filtered.append(data) if data[0].present?
+    end
+    filtered
+  end
+
+  def prepare_data_for_chart(data)
+    labels = []
+    values = []
+    data.each do |arr|
+      values.append(arr[0])
+      labels.append("#{Time.at(arr[1]).strftime('%Y-%m-%d')} #{Time.at(arr[1]).strftime('%H:%M')}")
+    end
+    [labels, values]
+  end
+
 end
