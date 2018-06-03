@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  graphite:
+    image: hopsoft/graphite-statsd
+    ports: 
+      - 8090:80
+      - 2003:2003
+      - 2004:2004
+      - 2023:2023
+      - 2024:2024
+      - 8125:8125
+      - 8126:8126
+    container_name: graphite.price
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 7777:3000
+    container_name: grafana
+    links:
+      - app
+      - "graphite:graphite.price"
+  app:
+    container_name: price_monitor
+    build: salt/docker/pm_container/
+    ports:
+      - 9999:3000
+    environment:
+      RAILS_ENV: development
+      SECRET_KEY_BASE: secret_key
+    links:
+      - "graphite:graphite.price"
