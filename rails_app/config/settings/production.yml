@@ -1,6 +1,7 @@
 graphite:
     host: graphite.price
     port: 2003
+    http_port: 8080
     metric_prefix: price_monitor_internal
     default_get_metric_time: "-14d"
 
