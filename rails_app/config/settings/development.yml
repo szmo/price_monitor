@@ -18,6 +18,12 @@ parsers:
             price: "span[class='pull-right price']"
         string:
             name: "div[class='product-info'] h1[itemprop='name']"
+    packages.wakacyjnipiraci.pl:
+        number:
+            price: "span[class='trip-price']"
+        string:
+            name: "h1[class='trip-heading'] a"
+            country: "header[class='header-of'] nav span"
 
 parser_helpers:
     things_to_delete:
